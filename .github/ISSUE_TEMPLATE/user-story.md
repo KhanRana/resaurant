@@ -10,9 +10,9 @@ assignees: ''
 As a **role**, I can **capability** so that ***received benefit***
 
 ## Acceptance Criteria
-  a. Critetia One
-  b. Criteria Two
-  c. Criteria Three
+  a. Criterion One
+  b. CriterionTwo
+  c. Criterion Three
 
 ## Tasks
   a. Task 1
