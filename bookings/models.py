@@ -9,6 +9,7 @@ class Menu(models.Model):
     title = models.CharField(max_length=100, unique=True)
     content = models.TextField()
     price = models.FloatField()
+    created_on = models.DateTimeField(auto_now=True)
     featured_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(User, related_name='menu_likes', blank=True)
 
