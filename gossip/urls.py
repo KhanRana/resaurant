@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pages import views as pages_views
+from bookings import views as booking_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
     path('', include('home.urls')),
     path('about/', include('pages.urls')),
+    path('menu/', booking_views.menu, name='menu')
 ]
