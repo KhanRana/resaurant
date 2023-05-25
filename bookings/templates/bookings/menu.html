@@ -1,8 +1,10 @@
 {% extends "home/base.html"%}
 
 {% block content %}
+<div>
 {% for item in menu %}
     <h4>{{item.title }}</h4>
     <p>{{itme.content}} <span><strong>{{item.price}}</strong></span></p>
 {% endfor %}
+</div>
 {%endblock content%}
