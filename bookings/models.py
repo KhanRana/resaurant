@@ -19,4 +19,17 @@ class Menu(models.Model):
     def num_of_Likes(self):
         return self.likes.count()
     
+class Review(models.Model):
+    name = models.CharField(max_length=70)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'Review {self.body} by {self.name}'
+    
+    
+
+    
 
