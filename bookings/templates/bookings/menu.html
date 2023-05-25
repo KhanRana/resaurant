@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    {% for item in menu %}
-        <h4>{{item.title }}</h4>
-        <p>{{itme.content}} <span><strong>{{item.price}}</strong></span></p>
-    {% endfor %}
-</body>
-</html>
+{% extends "home/base.html"%}
+
+{% block content %}
+{% for item in menu %}
+    <h4>{{item.title }}</h4>
+    <p>{{itme.content}} <span><strong>{{item.price}}</strong></span></p>
+{% endfor %}
+{%endblock content%}
