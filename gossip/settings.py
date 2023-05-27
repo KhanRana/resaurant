@@ -153,4 +153,10 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Crispy form template to style the forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Redirect logged-in user to the home page
+LOGIN_REDIRECT_URL = 'gossip-home'
+
+

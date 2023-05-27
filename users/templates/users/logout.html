@@ -1,0 +1,10 @@
+{% extends "home/base.html"%} {% block content %}
+<h2>You have logged out!</h2>
+<div class="border-top pt-3">
+  <small class="text-muted">
+    Log back in!
+    <a class="ml-2" href="{% url 'gossip-login'%}">Login</a>
+  </small>
+</div>
+
+{% endblock content %}
