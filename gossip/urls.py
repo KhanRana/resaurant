@@ -27,7 +27,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('about/', include('pages.urls')),
     path('menu/', booking_views.menu, name='gossip-menu'),
-    path('register/', include('users.urls')),
+    path('', include('users.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html') ,name='gossip-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='gossip-logout'),
 ]

@@ -158,5 +158,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Redirect logged-in user to the home page
 LOGIN_REDIRECT_URL = 'gossip-home'
+LOGIN_URL = 'gossip-login'
 
 
