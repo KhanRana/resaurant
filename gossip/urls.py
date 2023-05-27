@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pages import views as pages_views
+from django.contrib.auth import views as auth_views
 from bookings import views as booking_views
 
 
@@ -27,4 +28,6 @@ urlpatterns = [
     path('about/', include('pages.urls')),
     path('menu/', booking_views.menu, name='gossip-menu'),
     path('register/', include('users.urls')),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html') ,name='gossip-login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='gossip-logout'),
 ]
