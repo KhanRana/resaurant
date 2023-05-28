@@ -1,0 +1,21 @@
+{% extends "home/base.html"%}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="party_size">Party Size</label>
+        <select name="party_size" id="party_size">
+            <option value="one">1 Person</option>
+            <option value="two">2 Persons</option>
+            <option value="three">3 Persons</option>
+            <option value="four">4 Persons</option>
+            <option value="five">5 Persons</option>
+            <option value="six">6 Persons</option>
+        </select>
+        <label for="date">Date</label>
+        <input type="date" name="date" id="date">
+        <label for="time">Time</label>
+        <input type="time" name="time" id="time">
+        <button type="submit">Book</button>
+    </form>
+{%endblock content%}

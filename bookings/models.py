@@ -6,7 +6,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Menu(models.Model):
-    title = models.CharField(max_length=100, unique=True)
+    title = models.CharField(max_length=50, unique=True)
     content = models.TextField()
     price = models.FloatField()
     created_on = models.DateTimeField(auto_now=True)
@@ -18,6 +18,17 @@ class Menu(models.Model):
     
     def num_of_Likes(self):
         return self.likes.count()
+    
+
+class Booking(models.Model):
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    no_of_persons = models.IntegerField()
+    date = models.DateField()
+    time = models.TimeField()
+
+    def __str__(self):
+        return self.user_name
+
     
 class Review(models.Model):
     name = models.CharField(max_length=70)
