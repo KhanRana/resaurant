@@ -1,9 +1,10 @@
 {% extends "home/base.html"%}
+{% load crispy_forms_tags %}
 
 {% block content %}
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
-        <label for="party_size">Party Size</label>
+        <!-- <label for="party_size">Party Size</label>
         <select name="party_size" id="party_size">
             <option value="one">1 Person</option>
             <option value="two">2 Persons</option>
@@ -15,7 +16,8 @@
         <label for="date">Date</label>
         <input type="date" name="date" id="date">
         <label for="time">Time</label>
-        <input type="time" name="time" id="time">
+        <input type="time" name="time" id="time"> -->
+        {{ booking_form|crispy }}
         <button type="submit">Book</button>
     </form>
 {%endblock content%}
