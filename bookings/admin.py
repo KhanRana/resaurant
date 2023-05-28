@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import Menu, Review
+from .models import Menu, Review, Booking
 from django_summernote.admin import SummernoteModelAdmin
+
 
 # Register your models here.
 @admin.register(Menu)
@@ -18,3 +19,7 @@ class ReviewAdmin(admin.ModelAdmin):
 
     def approve_comments(self, request, queryset):
         queryset.update(approved=True)
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('user_name', 'no_of_persons', 'date', 'time')
