@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Review, Menu
+from .models import Review, Menu, Booking
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.

@@ -21,15 +21,16 @@ class Menu(models.Model):
     
 
 class Booking(models.Model):
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     no_of_persons = models.IntegerField()
     date = models.DateField()
     time = models.TimeField()
 
     def __str__(self):
-        return self.user_name
+        return f'''Table for {self.no_of_persons} has been booked on {self.date}
+        {self.time}'''
 
-    
+
 class Review(models.Model):
     name = models.CharField(max_length=70)
     email = models.EmailField()
