@@ -4,11 +4,10 @@ from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 @admin.register(Menu)
-class MenuAdmin(SummernoteModelAdmin):
+class MenuAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_display = ('title','created_on')
     list_filter = ('created_on',)
-    summernote_fields = ('content')
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):

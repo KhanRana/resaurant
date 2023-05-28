@@ -3,8 +3,9 @@
 {% block content %}
 <div>
 {% for item in menu %}
-    <h4>{{item.title }}</h4>
-    <p>{{itme.content}} <span><strong>{{item.price}}</strong></span></p>
+    <h4>{{ item.title }}</h4>
+    <h6>{{ item.price }}</h6>
+    <p>{{ item.content }}</p>
 {% endfor %}
 </div>
 {%endblock content%}
