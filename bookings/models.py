@@ -20,8 +20,19 @@ class Menu(models.Model):
         return self.likes.count()
     
 
+class Table(models.Model):
+    TABLE_CAPACITY = {
+        '1 Person': 3,
+        '2 Persons': 2,
+        '4 Persons': 3,
+        '5 Persons': 1,
+    }
+    num = models.PositiveIntegerField()
+
+
 class Booking(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    name = models.CharField(max_length=20)
     no_of_persons = models.IntegerField()
     date = models.DateField()
     time = models.TimeField()
