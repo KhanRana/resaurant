@@ -21,13 +21,11 @@ class Menu(models.Model):
     
 
 class Table(models.Model):
-    TABLE_CAPACITY = {
-        '1 Person': 3,
-        '2 Persons': 2,
-        '4 Persons': 3,
-        '5 Persons': 1,
-    }
     num = models.PositiveIntegerField()
+    capaciy = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.num} has {self.capaciy}'
 
 
 class Booking(models.Model):
