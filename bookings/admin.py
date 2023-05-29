@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Menu, Review, Booking
+from .models import Menu, Review, Booking, Table
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -23,3 +23,7 @@ class ReviewAdmin(admin.ModelAdmin):
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = ('name', 'username', 'no_of_persons', 'date', 'time')
+
+@admin.register(Table)
+class TableAdmin(admin.ModelAdmin):
+    list_display = ('num', 'capacity')

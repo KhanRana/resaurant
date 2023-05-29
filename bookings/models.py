@@ -22,10 +22,10 @@ class Menu(models.Model):
 
 class Table(models.Model):
     num = models.PositiveIntegerField()
-    capaciy = models.PositiveIntegerField()
+    capacity = models.PositiveIntegerField()
 
     def __str__(self):
-        return f'{self.num} has {self.capaciy}'
+        return f'{self.num} has {self.capacity}'
 
 
 class Booking(models.Model):
