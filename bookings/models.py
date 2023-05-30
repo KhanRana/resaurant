@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from datetime import datetime
 
 
 # Create your models here.
@@ -21,22 +22,34 @@ class Menu(models.Model):
     
 
 class Table(models.Model):
+    accommodate = (
+        ('One', 'One'),
+        ('Two', 'Two'),
+        ('Four', 'Four'),
+        ('Six', 'Six'),
+    )
     num = models.PositiveIntegerField()
-    capacity = models.PositiveIntegerField()
+    capacity = models.CharField(choices=accommodate)
 
     def __str__(self):
-        return f'{self.num} has {self.capacity}'
+        return f'Table {self.num} can sit {self.capacity}'
 
+
+TIME_CHOICES = (
+    ("6 PM", '1800'),
+    ("7 PM", '1900'),
+    ("8 PM", '2000'),
+    ("9 PM", '2100'),
+)
 
 class Booking(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    name = models.CharField(max_length=20)
-    no_of_persons = models.IntegerField()
-    date = models.DateField()
-    time = models.TimeField()
+    table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='table')
+    date = models.DateField(default=datetime.now)
+    time = models.CharField(choices=TIME_CHOICES)
 
     def __str__(self):
-        return f'''Table for {self.no_of_persons} has been booked on {self.date}
+        return f'''{self.table} and has been booked for {self.date}
         {self.time}'''
 
 

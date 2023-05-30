@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import generic
-from .models import Review, Menu
+from .models import Review, Menu, Table, Booking
 from .forms import BookTableForm
 from django.contrib.auth.decorators import login_required
 
@@ -20,7 +20,12 @@ def booking(request):
     if request.method == 'POST':
         booking_form = BookTableForm(request.POST)
         if booking_form.is_valid():
-            booking_form.save()
+            requested_table = request.POST.get('table')
+            requested_time = request.POST.get('time')
+            booking_list = Booking.objects.all()    
+            for booking in booking_list:
+                if ((booking.table != requested_table) and (booking.time != requested_time)):
+                    booking_form.save()
             messages.success(request, 'Your table has been booked, We look forward to seeing you!')
             return redirect('gossip-menu')
         
@@ -34,3 +39,11 @@ class ReviewList(generic.ListView):
     queryset = Review.objects.filter(approved=1).order_by('-created_on')
     template_name = 'home.html'
     paginate_by = 5
+
+
+class TableList(generic.ListView):
+    model = Table
+
+class BookingList(generic.ListView):
+    model = Booking
+

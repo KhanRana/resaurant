@@ -22,7 +22,7 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ('name', 'username', 'no_of_persons', 'date', 'time')
+    list_display = ('username', 'table', 'date', 'time')
 
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
