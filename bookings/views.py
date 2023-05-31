@@ -23,7 +23,7 @@ def booking(request):
         booking_form = BookTableForm(request.POST)
         if booking_form.is_valid():
             data = booking_form.cleaned_data
-            table_list = Table.objects.filter(data['num'])
+            table_list = Table.objects.filter(num=data['table'].num)
             available_tables = []
             for table in table_list:
                 if check_availability(table, data['date'], data['time']):    

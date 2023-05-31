@@ -29,17 +29,17 @@ class Table(models.Model):
         (6, 6),
     )
     num = models.PositiveIntegerField()
-    capacity = models.CharField(choices=accommodate)
+    capacity = models.IntegerField(choices=accommodate)
 
     def __str__(self):
         return f'{self.capacity}'
 
 
 TIME_CHOICES = (
-    ("6 PM", '6 PM'),
-    ("7 PM", '7 PM'),
-    ("8 PM", '8 PM'),
-    ("9 PM", '9 PM'),
+    ('6 PM', '6 PM'),
+    ('7 PM', '7 PM'),
+    ('8 PM', '8 PM'),
+    ('9 PM', '9 PM'),
 )
 
 class Booking(models.Model):
