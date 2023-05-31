@@ -40,7 +40,7 @@ def booking(request):
                 messages.success(request, 'Your table has been booked, We look forward to seeing you!')
                 return redirect('gossip-menu')
             else:
-                messages.success(request, 'A booking already exists, please select another table or time')
+                messages.error(request, 'A booking already exists, please select another table or time')
                 return render(request, 'bookings/booking.html', {'booking_form': booking_form })
     else:
         booking_form = BookTableForm()

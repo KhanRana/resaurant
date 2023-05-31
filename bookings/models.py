@@ -8,7 +8,7 @@ from datetime import datetime
 
 class Menu(models.Model):
     title = models.CharField(max_length=50, unique=True)
-    content = models.TextField()
+    content = models.CharField(max_length=300)
     price = models.FloatField()
     created_on = models.DateTimeField(auto_now=True)
     featured_image = CloudinaryField('image', default='placeholder')
