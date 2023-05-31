@@ -23,23 +23,23 @@ class Menu(models.Model):
 
 class Table(models.Model):
     accommodate = (
-        ('One', 'One'),
-        ('Two', 'Two'),
-        ('Four', 'Four'),
-        ('Six', 'Six'),
+        (1, 1),
+        (2, 2),
+        (4, 4),
+        (6, 6),
     )
     num = models.PositiveIntegerField()
     capacity = models.CharField(choices=accommodate)
 
     def __str__(self):
-        return f'Table {self.num} can sit {self.capacity}'
+        return f'{self.capacity}'
 
 
 TIME_CHOICES = (
-    ("6 PM", '1800'),
-    ("7 PM", '1900'),
-    ("8 PM", '2000'),
-    ("9 PM", '2100'),
+    ("6 PM", '6 PM'),
+    ("7 PM", '7 PM'),
+    ("8 PM", '8 PM'),
+    ("9 PM", '9 PM'),
 )
 
 class Booking(models.Model):

@@ -6,6 +6,3 @@ class BookTableForm(forms.ModelForm):
         model = Booking
         fields = ['username', 'table', 'date', 'time']
 
-
-class AvailabilityForm(forms.Form):
-    pass

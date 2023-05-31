@@ -27,3 +27,4 @@ class BookingAdmin(admin.ModelAdmin):
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
     list_display = ('num', 'capacity')
+
