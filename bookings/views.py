@@ -17,10 +17,14 @@ def menu(request):
     return render(request, 'bookings/menu.html', context=context)
 
 
+
+
 class MenuListView(ListView):
+    """Menu view as a list and dislplay the list by lower to higher price"""
     model = Menu
     template_name = 'bookings/menu.html'
     context_object_name = 'menu'
+    ordering = ['price']
 
 
 @login_required
@@ -52,6 +56,22 @@ def booking(request):
         booking_form = BookTableForm()
     return render(request, 'bookings/booking.html', {'booking_form': booking_form })
 
+
+@login_required
+def booking_list(request):
+    if (request.user.is_authenticated):
+        context = {'user_bookings': Booking.objects.filter(username=request.user)}
+        return render(request, 'bookings/user_bookings.html', context=context)
+    else:
+        messages.error(request, "You need to login to view this page!")
+        return redirect('gossip-login')
+
+
+# class BookingList(ListView):
+#     model = Booking
+#     template_name = 'bookings/user_bookings.html'
+#     list = booking_list(request)
+#     context_object_name = 'list'
 
 class ReviewList(generic.ListView):
     model = Review

@@ -49,7 +49,7 @@ class Booking(models.Model):
     time = models.CharField(choices=TIME_CHOICES)
 
     def __str__(self):
-        return f'''{self.table} and has been booked for {self.date}
+        return f'''Table for {self.table}, and has been booked for {self.date}
         {self.time}'''
 
 

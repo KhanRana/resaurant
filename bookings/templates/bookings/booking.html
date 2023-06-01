@@ -6,20 +6,8 @@
 {{ booking_list }}
     <form method="POST">
         {% csrf_token %}
-        <!-- <label for="party_size">Party Size</label>
-        <select name="party_size" id="party_size">
-            <option value="one">1 Person</option>
-            <option value="two">2 Persons</option>
-            <option value="three">3 Persons</option>
-            <option value="four">4 Persons</option>
-            <option value="five">5 Persons</option>
-            <option value="six">6 Persons</option>
-        </select>
-        <label for="date">Date</label>
-        <input type="date" name="date" id="date">
-        <label for="time">Time</label>
-        <input type="time" name="time" id="time"> -->
         {{ booking_form | crispy }}
         <button type="submit">Book</button>
     </form>
+    <a class="nav-link" href="{% url 'user-bookings'%}">Your Bookings</a>
 {% endblock content%}
