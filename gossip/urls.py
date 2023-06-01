@@ -19,6 +19,7 @@ from django.urls import path, include
 from pages import views as pages_views
 from django.contrib.auth import views as auth_views
 from bookings import views as booking_views
+from bookings.views import MenuListView
 
 
 urlpatterns = [
@@ -26,7 +27,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', include('home.urls')),
     path('about/', include('pages.urls')),
-    path('menu/', booking_views.menu, name='gossip-menu'),
+    path('menu/', MenuListView.as_view(), name='gossip-menu'),
     path('', include('users.urls')),
     path('', include('bookings.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html') ,name='gossip-login'),

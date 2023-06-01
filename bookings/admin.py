@@ -8,7 +8,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class MenuAdmin(admin.ModelAdmin):
     search_fields = ('title',)
     list_display = ('title','created_on')
-    list_filter = ('created_on',)
+    list_filter = ('price',)
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):

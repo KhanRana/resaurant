@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views import generic
+from django.views.generic import ListView
 from .models import Review, Menu, Table, Booking
 from .forms import BookTableForm
 from django.contrib.auth.decorators import login_required
@@ -15,6 +16,11 @@ def menu(request):
     }
     return render(request, 'bookings/menu.html', context=context)
 
+
+class MenuListView(ListView):
+    model = Menu
+    template_name = 'bookings/menu.html'
+    context_object_name = 'menu'
 
 
 @login_required
