@@ -4,11 +4,14 @@ from django.contrib import messages
 from django.views import generic
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import (LoginRequiredMixin, 
+                                        UserPassesTestMixin,)
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic import (ListView, 
 CreateView,
 DetailView,
 UpdateView,
+DeleteView,
 )
 from .models import Review, Menu, Table, Booking
 # from .forms import BookTableForm
@@ -90,6 +93,18 @@ class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin,UpdateView):
         else:
             return False
 
+class BookingCancelView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, DeleteView):
+    """Menu view as a list and dislplay the list by lower to higher price"""
+    model = Booking
+    success_url = '/'
+    success_message = 'Your booking has been cancelled successfully!'
+    
+    def test_func(self):
+        booking = self.get_object()
+        if self.request.user == booking.username:
+            return True
+        else:
+            return False
 
 class MenuListView(ListView):
     """Menu view as a list and dislplay the list by lower to higher price"""
