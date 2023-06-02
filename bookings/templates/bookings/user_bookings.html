@@ -3,9 +3,12 @@
 <h1>You Bookings</h1> 
 {% if user_bookings|length > 0 %}
     {%for booking in user_bookings%}
-        <h6>{{ booking }}</h6>
+        <div>
+            <h6>{{ booking.username }}</h6>
+            <a href="{% url 'booking-details' booking.id %}"><p>{{booking.table}} {{booking.date}} {{booking.time}}</p></a>
+        </div>
     {% endfor %}
-{% else %}
+{% else %} 
     <h3>You do not have any bookings to your name</h3>
 {% endif %}
 {% endblock content %}
