@@ -1,0 +1,13 @@
+{% extends "home/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{{ booking_list }}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button type="submit">Book</button>
+    </form>
+    <a class="nav-link" href="{% url 'user-bookings'%}">Your Bookings</a>
+{% endblock content%}
