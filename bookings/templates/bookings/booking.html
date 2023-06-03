@@ -6,7 +6,10 @@
 {{ booking_list }}
     <form method="POST">
         {% csrf_token %}
-        {{ booking_form | crispy }}
+        {{booking_form.table|as_crispy_field}}
+        {{booking_form.date|as_crispy_field}}
+        {{booking_form.time|as_crispy_field}}
+        <!-- {{ booking_form | crispy }} -->
         <button type="submit">Book</button>
     </form>
     <a class="nav-link" href="{% url 'user-bookings'%}">Your Bookings</a>

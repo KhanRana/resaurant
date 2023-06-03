@@ -127,7 +127,7 @@ def booking_list(request):
 # class BookingList(ListView):
 #     model = Booking
 #     template_name = 'bookings/user_bookings.html'
-#     list = Booking.objects.filter(username.)
+#     list = Booking.objects.filter(username=user)
 #     context_object_name = 'list'
 
 class BookingDetailView(DetailView):
