@@ -3,9 +3,14 @@
 <h1>You Bookings</h1> 
 {% if user_bookings|length > 0 %}
     {%for booking in user_bookings%}
-        <div>
-            <h6>{{ booking.username }}</h6>
-            <a href="{% url 'booking-details' booking.id %}"><p>{{booking.table}} {{booking.date}} {{booking.time}}</p></a>
+        <div class="mt-1 mb-1">
+            <div>
+            <a href="{% url 'booking-details' booking.id %}" class="btn btn-outline-secondary btn-sm">Manage Booking</a>
+            </div>
+            <div>
+                <h6>{{ booking.username }}</h6>
+              <a href="{% url 'booking-details' booking.id %}"><p>{{booking.table}} {{booking.date}} {{booking.time}}</p></a>
+            </div>
         </div>
     {% endfor %}
 {% else %} 

@@ -52,7 +52,7 @@
     
     {% if messages %}
       {% for message in messages %}
-        <div class="flash-{{ message.tags }}"> {{ message }} </div>
+        <div class="alert {{ message.tags }}" role="alert"> {{ message }} </div>
       {% endfor %}
     {% endif %}
     {% block content %} {% endblock content %}
