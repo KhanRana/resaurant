@@ -1,9 +1,10 @@
 from django import forms
-from .models import Booking
+from .models import Booking, Review
 
-class BookTableForm(forms.ModelForm):
+class ReviewForm(forms.ModelForm):
     class Meta:
-        model = Booking
-        fields = ['table', 'date', 'time']
+        model = Review
+        fields = ('name', 'body',)
+
  
 

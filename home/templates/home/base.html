@@ -10,6 +10,8 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {% if title %}
     <title>{{ title }}</title>
@@ -37,25 +39,24 @@
             <a class="nav-link" href="{% url 'gossip-about' %}">About</a>
             <a class="nav-link" href="{% url 'gossip-menu' %}">Menu</a>
             <a class="nav-link" href="#">Contact</a>
-             <a class="nav-link" href="{% url 'create-booking'%}">Booking</a>
+            <a class="nav-link" href="{% url 'create-booking'%}">Booking</a>
             {% if user.is_authenticated %}
-              <a class="nav-link" href="{% url 'gossip-profile' %}">Profile</a>
-              <a class="nav-link" href="{% url 'user-bookings'%}">Manage Bookings</a>
-              <a class="nav-link" href="{% url 'gossip-logout' %}">Logout</a>
-              {% else %}
-              <a class="nav-link" href="{% url 'gossip-login' %}">Login</a>
+            <a class="nav-link" href="{% url 'gossip-profile' %}">Profile</a>
+            <a class="nav-link" href="{% url 'user-bookings'%}"
+              >Manage Bookings</a
+            >
+            <a class="nav-link" href="{% url 'gossip-logout' %}">Logout</a>
+            {% else %}
+            <a class="nav-link" href="{% url 'gossip-login' %}">Login</a>
             {% endif %}
           </div>
         </div>
       </div>
     </nav>
-    
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert {{ message.tags }}" role="alert"> {{ message }} </div>
-      {% endfor %}
-    {% endif %}
-    {% block content %} {% endblock content %}
+
+    {% if messages %} {% for message in messages %}
+    <div class="alert {{ message.tags }}" role="alert">{{ message }}</div>
+    {% endfor %} {% endif %} {% block content %} {% endblock content %}
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
       integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
