@@ -4,8 +4,9 @@
 <div>
 {% for item in menu %}
     <div class="menu-item">
-    <h4 class="menu-title">{{ item.title }}</h4>
-    <p>{{ item.content }} &nbsp; <span><em>£{{ item.price }}</em></span></p>   
+    <h4 class="menu-title">{{ item.title }} <i class="far fa-heart like">
+    </i> {{ item.num_of_likes }}</h4>
+    <p>{{ item.content }} &nbsp; <span><em>£{{ item.price }}</em></span></p>     
     </div>
 {% endfor %}
 </div>

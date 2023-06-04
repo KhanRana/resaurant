@@ -1,5 +1,5 @@
 from typing import Optional
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse
@@ -14,9 +14,10 @@ UpdateView,
 DeleteView,
 )
 from .models import Review, Menu, Table, Booking
-# from .forms import BookTableForm
+from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from .availability import check_availability
+
 
 # Create your views here.
 
@@ -111,7 +112,7 @@ class MenuListView(ListView):
     model = Menu
     template_name = 'bookings/menu.html'
     context_object_name = 'menu'
-    ordering = ['price']
+    ordering = ['price']    
 
 
 @login_required
@@ -131,7 +132,7 @@ def booking_list(request):
 #     context_object_name = 'list'
 
 class BookingDetailView(DetailView):
-    """Menu view as a list and dislplay the list by lower to higher price"""
+    """Details of a booking in a separate view"""
     model = Booking
 
 
