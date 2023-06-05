@@ -22,7 +22,7 @@
     {% endif %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'gossip-home' %}">Dine & Gossip</a>
         <button
@@ -59,6 +59,18 @@
     {% if messages %} {% for message in messages %}
     <div class="alert {{ message.tags }}" role="alert">{{ message }}</div>
     {% endfor %} {% endif %} {% block content %} {% endblock content %}
+
+  <footer class="page-footer">
+    <div class="contact">
+      Contact Us
+    </div>
+    <div class="address">
+      Address
+    </div class="opening">
+    Opening Hours
+    <div></div>
+
+  </footer>  
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
       integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
