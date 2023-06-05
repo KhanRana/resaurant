@@ -10,7 +10,9 @@
         {{booking_form.date|as_crispy_field}}
         {{booking_form.time|as_crispy_field}}
         <!-- {{ booking_form | crispy }} -->
-        <button type="submit">Book</button>
+        <div class="form-group">
+            <button class="btn btn-dark" type="submit">Book</button>
+        </div>
     </form>
     <a class="nav-link" href="{% url 'user-bookings'%}">Your Bookings</a>
 {% endblock content%}

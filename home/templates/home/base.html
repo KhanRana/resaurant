@@ -37,10 +37,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav ms-auto">
             <a class="nav-link" href="{% url 'gossip-about' %}">About</a>
             <a class="nav-link" href="{% url 'gossip-menu' %}">Menu</a>
-            <a class="nav-link" href="#">Contact</a>
             <a class="nav-link" href="{% url 'create-booking'%}">Booking</a>
             {% if user.is_authenticated %}
             <a class="nav-link" href="{% url 'gossip-profile' %}">Profile</a>
@@ -62,17 +61,17 @@
 
   <footer class="page-footer">
     <div class="contact footer-box">
-      <h3>Contact Us</h3>
+      <h4>Contact Us</h4>
       <p class="footer-p">123-4567-89</p>
       <p class="footer-p">info@dineandgossip.com</p>
     </div>
     <div class="address footer-box">
-      <h3>Address</h3>
+      <h4>Address</h4>
       <p class="footer-p">123 Manchester Road</p>
       <p class="footer-p">M99XY</p>
     </div>
     <div class="opening footer-box">
-      <h3>Opening Hours</h3>
+      <h4>Opening Hours</h4>
       <p>Mon - Sun: 6pm - 9pm</p>
     <div>   
   </footer>  
