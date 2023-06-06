@@ -5,6 +5,10 @@ body{
 
 }
 
+#logo:hover {
+    color: #ffffff;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
 }
