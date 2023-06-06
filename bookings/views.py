@@ -25,7 +25,6 @@ from .availability import check_availability
 
 class BookingCreateView(LoginRequiredMixin, CreateView, forms.ModelForm):
     model = Booking
-    # fields = ['table', 'date', 'time']
     form_class = BookingForm
 
     def form_valid(self, form):
@@ -53,9 +52,9 @@ class BookingCreateView(LoginRequiredMixin, CreateView, forms.ModelForm):
               please select another table or time''')
             return redirect('create-booking')
 
-class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin,UpdateView):
+class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Booking
-    fields = ['table', 'date', 'time']
+    form_class = BookingForm
 
     def form_valid(self, form):
         data = form.cleaned_data
@@ -81,7 +80,6 @@ class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin,UpdateView):
             messages.error(self.request,'''A booking already exists,
               please select another table or time''')
             return HttpResponseRedirect(self.request.path_info)
-            # return redirect('booking-update')
     
     def test_func(self):
         booking = self.get_object()
@@ -121,12 +119,6 @@ def booking_list(request):
         return redirect('gossip-login')
 
 
-# class BookingList(ListView):
-#     model = Booking
-#     template_name = 'bookings/user_bookings.html'
-#     list = Booking.objects.filter(username=user)
-#     context_object_name = 'list'
-
 class BookingDetailView(DetailView):
     """Details of a booking in a separate view"""
     model = Booking
@@ -136,6 +128,6 @@ class ReviewList(generic.ListView):
     model = Review
     queryset = Review.objects.filter(approved=1).order_by('-created_on')
     template_name = 'home.html'
-    paginate_by = 5
+    paginate_by = 1
 
 

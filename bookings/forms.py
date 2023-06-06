@@ -4,7 +4,7 @@ from .models import Booking, Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ('name', 'body',)
+        fields = ['name', 'body', 'created_on']
 
 
 class DateInput(forms.DateInput):
@@ -17,5 +17,5 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ['table', 'date', 'time']
         widgets = {
-            'date': DateInput(),
-        }
+            'date': DateInput()
+            }

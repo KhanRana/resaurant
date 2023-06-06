@@ -6,6 +6,15 @@
         <h2 id="cover-text">The Real Malysian Food </h2>
     </div>
 </section>
-<!-- <section>Reviews</section> -->
+<section id="reviews">
+    <div>
+        {% for review in reviews %}
+        <p>{{review.name}}</p>
+        <p>{{review.body}}</p>
+        <p>{{review.created_on}}</p>
+        {% endfor %}
+
+    </div>
+</section>
 
 {% endblock content %}

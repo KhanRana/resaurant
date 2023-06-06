@@ -126,6 +126,7 @@ margin-top: 5px;
 #booking-details {
     text-decoration: underline;
     color: #000000;
+    text-emphasis: none;
 }
 
 @media screen and (max-width:820px) {

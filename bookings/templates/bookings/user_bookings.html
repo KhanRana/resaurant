@@ -5,7 +5,7 @@
     {%for booking in user_bookings%}
         <div class="mt-1 mb-1">
             <h6 id="booking-name"> Booking Name: {{ booking.username }}</h6>
-            <a class="booking-details" href="{% url 'booking-details' booking.id %}"><p class="booking-details"> Table for {{booking.table}}|{{booking.date}}|{{booking.time}}</p></a>
+            <a id="booking-details" href="{% url 'booking-details' booking.id %}"><p> Table for {{booking.table}}|{{booking.date}}|{{booking.time}}</p></a>
             </div>
         </div>
     {% endfor %}
