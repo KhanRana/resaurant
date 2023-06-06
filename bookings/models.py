@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime
 from django.urls import reverse
+from django.core.validators import MinValueValidator
+from django.db import models
+import datetime
 
 
 # Create your models here.
@@ -46,7 +49,7 @@ TIME_CHOICES = (
 class Booking(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='table')
-    date = models.DateField(default=datetime.now)
+    date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
     time = models.CharField(choices=TIME_CHOICES)
 
     def __str__(self):
