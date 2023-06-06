@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <div>
+    <div id="booking-form">
         <form action="#" method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
@@ -10,7 +10,7 @@
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Register</button>
+                <button class="btn btn-dark" type="submit">Register</button>
             </div>
         </form>
             <div class="border-top pt-3">
