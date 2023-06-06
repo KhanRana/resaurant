@@ -9,7 +9,7 @@ body{
     font-size: 1.5rem;
 }
 
-.nav {
+#navigation {
     background-color: #808080;
     
 }
@@ -119,6 +119,19 @@ margin-top: 5px;}
     
 
 }
+}
+
+/* menu template */
+
+#menu {
+    text-align: center;
+    padding-bottom: 200px;
+}
+
+#menu-content {
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* footer */
