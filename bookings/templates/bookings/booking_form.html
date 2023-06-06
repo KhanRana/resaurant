@@ -4,6 +4,7 @@
 {% block content %}
 
 {{ booking_list }}
+    <div id="booking-form">
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
@@ -12,5 +13,8 @@
             <button class="btn btn-dark" type="submit">Book</button>
         </div>
     </form>
-    <a class="nav-link mt-1 mb-1" href="{% url 'user-bookings'%}">Your Bookings</a>
+    </div>
+    <div id="booking-link">
+    <a class="nav-link mt-1 mb-1 btn btn-dark" href="{% url 'user-bookings'%}">Your Bookings</a>
+    </div>
 {% endblock content%}

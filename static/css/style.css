@@ -28,11 +28,6 @@ position: relative;
 display: flex;
 }
 
-
-.logo{
-    color: #ff0000;
-}
-
 /* Resize the profile image */
 .account-img {
     max-width: 50px;
@@ -70,7 +65,7 @@ display: flex;
 }
 
 .cover-text, .cover-text h2{
-    color: #ffffff;
+    color: #ff0000;
 }
 .cover-text {
     align-items: center;
@@ -85,6 +80,17 @@ display: flex;
     letter-spacing: 4px;
 }
 
+/* booking_form page */
+#booking-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+#booking-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* Form submit button */
 
 .btn  {
