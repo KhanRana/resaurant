@@ -1,9 +1,11 @@
-from typing import Optional
+from typing import Any, Optional
+from .forms import DateInput 
+from django import forms
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.views import generic
 from django.urls import reverse
-from django.http import HttpResponseRedirect
+from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.contrib.auth.mixins import (LoginRequiredMixin, 
                                         UserPassesTestMixin,)
 from django.contrib.messages.views import SuccessMessageMixin
@@ -22,13 +24,7 @@ from .availability import check_availability
 # Create your views here.
 
 
-# def menu(request):
-#     context = {
-#         'menu': Menu.objects.all()
-#     }
-#     return render(request, 'bookings/menu.html', context=context)
-
-class BookingCreateView(LoginRequiredMixin, CreateView):
+class BookingCreateView(LoginRequiredMixin, CreateView, forms.ModelForm):
     model = Booking
     fields = ['table', 'date', 'time']
 

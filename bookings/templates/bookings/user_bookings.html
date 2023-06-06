@@ -1,15 +1,15 @@
 {% extends "home/base.html"%}
 {% block content %}
-<h1>You Bookings</h1> 
+<h2>Your Bookings</h2> 
 {% if user_bookings|length > 0 %}
     {%for booking in user_bookings%}
         <div class="mt-1 mb-1">
-            <h6>{{ booking.username }}</h6>
-            <a href="{% url 'booking-details' booking.id %}"><p>{{booking.table}} {{booking.date}} {{booking.time}}</p></a>
+            <h6 id="booking-name"> Booking Name: {{ booking.username }}</h6>
+            <a class="booking-details" href="{% url 'booking-details' booking.id %}"><p class="booking-details"> Table for {{booking.table}}|{{booking.date}}|{{booking.time}}</p></a>
             </div>
         </div>
     {% endfor %}
 {% else %} 
-    <h3>You do not have any bookings to your name</h3>
+    <p>You do not have any bookings to your name</p>
 {% endif %}
 {% endblock content %}
