@@ -14,7 +14,7 @@ DetailView,
 UpdateView,
 DeleteView,
 )
-from .models import Review, Menu, Table, Booking
+from .models import Menu, Table, Booking, Review
 from .forms import ReviewForm
 from django.contrib.auth.decorators import login_required
 from .availability import check_availability
@@ -127,7 +127,7 @@ class BookingDetailView(DetailView):
 class ReviewList(generic.ListView):
     model = Review
     queryset = Review.objects.filter(approved=1).order_by('-created_on')
-    template_name = 'home.html'
+    template_name = 'home/home.html'
     paginate_by = 1
 
 

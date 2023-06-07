@@ -5,6 +5,7 @@ from datetime import datetime
 from django.urls import reverse
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.utils import timezone
 import datetime
 
 
@@ -61,7 +62,7 @@ class Review(models.Model):
     name = models.CharField(max_length=70)
     email = models.EmailField()
     body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(default=timezone.now)
     approved = models.BooleanField(default=False)
 
     def __str__(self):
