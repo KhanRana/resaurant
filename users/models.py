@@ -17,6 +17,8 @@ class Profile(models.Model):
     
     def save(self):
         # Resizing user profile image for the upload
+        # Some of the code was taken from https://stackoverflow.com/users/13449046/takib-ahmed
+        # However it has been changed for the project
         super(Profile, self).save()
         # After save, read the file
         image_read = storage.open(self.image.name, "r")
