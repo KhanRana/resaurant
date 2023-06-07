@@ -180,10 +180,9 @@ margin-top: 5px;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: auto;
+    height: fit-content;
     position: fixed;
-    text-align: center; 
-    
+    text-align: center;     
     /* Add flex box */
 
     display: flex;
