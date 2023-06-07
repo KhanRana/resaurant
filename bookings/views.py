@@ -24,6 +24,7 @@ from .availability import check_availability
 
 
 class BookingCreateView(LoginRequiredMixin, CreateView, forms.ModelForm):
+    """Create booking view """
     model = Booking
     form_class = BookingForm
 
@@ -53,6 +54,7 @@ class BookingCreateView(LoginRequiredMixin, CreateView, forms.ModelForm):
             return redirect('create-booking')
 
 class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    """Update a booking"""
     model = Booking
     form_class = BookingForm
 
@@ -125,6 +127,7 @@ class BookingDetailView(DetailView):
 
 
 class ReviewList(generic.ListView):
+    """reviews as a list"""
     model = Review
     queryset = Review.objects.filter(approved=1).order_by('-created_on')
     template_name = 'home/home.html'

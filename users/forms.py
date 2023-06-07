@@ -4,6 +4,7 @@ from .models import Profile
 from django import forms
 
 class UserRegistrationForm(UserCreationForm):
+    """Create user registration form"""
     email = forms.EmailField()
 
     class Meta:
@@ -12,11 +13,13 @@ class UserRegistrationForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
+    """Update user"""
     class Meta:
         model = User
         fields = ['username', 'email']
 
 class ProfileUpdateForm(forms.ModelForm):
+     """Update user image"""
      class Meta:
         model = Profile
         fields = ['image']

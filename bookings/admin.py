@@ -12,6 +12,7 @@ class MenuAdmin(admin.ModelAdmin):
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
+    """Register review model"""
     list_display = ('name', 'body', 'email', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
     search_fields= ('name', 'body', 'email')
@@ -22,9 +23,11 @@ class ReviewAdmin(admin.ModelAdmin):
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
+    """Booking model registraion"""
     list_display = ('username', 'table', 'date', 'time')
 
 @admin.register(Table)
 class TableAdmin(admin.ModelAdmin):
+    """Table model registration"""
     list_display = ('num', 'capacity')
 

@@ -12,6 +12,7 @@ import datetime
 # Create your models here.
 
 class Menu(models.Model):
+    """Create menu model"""
     title = models.CharField(max_length=50, unique=True)
     content = models.CharField(max_length=300)
     price = models.FloatField()
@@ -27,6 +28,7 @@ class Menu(models.Model):
     
 
 class Table(models.Model):
+    """Creates table model"""
     accommodate = (
         (1, 1),
         (2, 2),
@@ -48,6 +50,7 @@ TIME_CHOICES = (
 )
 
 class Booking(models.Model):
+    """Creates booking model to book a table"""
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
     table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='table')
     date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
@@ -59,6 +62,7 @@ class Booking(models.Model):
 
 
 class Review(models.Model):
+    """Create review model"""
     name = models.CharField(max_length=70)
     email = models.EmailField()
     body = models.TextField()
