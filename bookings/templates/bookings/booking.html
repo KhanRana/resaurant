@@ -1,18 +1,12 @@
-{% extends "home/base.html"%}
-{% load crispy_forms_tags %}
-
-{% block content %}
-
+{% extends "home/base.html"%} {% load crispy_forms_tags %} {% block content %}
 {{ booking_list }}
-    <form method="POST">
-        {% csrf_token %}
-        {{booking_form.table|as_crispy_field}}
-        {{booking_form.date|as_crispy_field}}
-        {{booking_form.time|as_crispy_field}}
-        <!-- {{ booking_form | crispy }} -->
-        <div class="form-group">
-            <button class="btn btn-dark" type="submit">Book</button>
-        </div>
-    </form>
-    <a class="nav-link" href="{% url 'user-bookings'%}">Manage Bookings</a>
+<form method="POST">
+  {% csrf_token %} {{booking_form.table|as_crispy_field}}
+  {{booking_form.date|as_crispy_field}} {{booking_form.time|as_crispy_field}}
+  <!-- {{ booking_form | crispy }} -->
+  <div class="form-group">
+    <button class="btn btn-dark" type="submit">Book</button>
+  </div>
+</form>
+<a class="nav-link" href="{% url 'user-bookings'%}">Manage Bookings</a>
 {% endblock content%}

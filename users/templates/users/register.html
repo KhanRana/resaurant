@@ -1,24 +1,21 @@
-{% extends "home/base.html"%}
-{% load crispy_forms_tags %}
-
-{% block content %}
-    <div id="booking-form">
-        <form action="#" method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="borer-bottom mb-4">Register</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-dark" type="submit">Register</button>
-            </div>
-        </form>
-            <div class="border-top pt-3">
-                <small class="text-muted">
-                    Already have an account? <a class="ml-2" href="{% url 'gossip-login'%}">Login</a>
-                </small>
-            </div>
+{% extends "home/base.html"%} {% load crispy_forms_tags %} {% block content %}
+<div id="booking-form">
+  <form action="#" method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="borer-bottom mb-4">Register</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-dark" type="submit">Register</button>
     </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Already have an account?
+      <a class="ml-2" href="{% url 'gossip-login'%}">Login</a>
+    </small>
+  </div>
+</div>
 
 {% endblock content %}
-

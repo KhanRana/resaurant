@@ -1,23 +1,22 @@
-{% extends "home/base.html"%}
-{% load crispy_forms_tags %}
-
-{% block content %}
+{% extends "home/base.html"%} {% load crispy_forms_tags %} {% block content %}
 <!-- {{ booking_list }} -->
-    <div id="booking-form">
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset>
-            <legend>Select table size, date & time</legend>
-            <div>{{ form.table | as_crispy_field }}</div>
-            <div>{{ form.date | as_crispy_field }}</div>
-            <div>{{ form.time | as_crispy_field }}</div>
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-dark" type="submit">Book</button>
-        </div>       
-    </form>
+<div id="booking-form">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <legend>Select table size, date & time</legend>
+      <div>{{ form.table | as_crispy_field }}</div>
+      <div>{{ form.date | as_crispy_field }}</div>
+      <div>{{ form.time | as_crispy_field }}</div>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-dark" type="submit">Book</button>
     </div>
-    <div id="booking-link">
-    <a class="nav-link mt-1 mb-1 btn btn-dark" href="{% url 'user-bookings'%}">Manage Bookings</a>
-    </div>
+  </form>
+</div>
+<div id="booking-link">
+  <a class="nav-link mt-1 mb-1 btn btn-dark" href="{% url 'user-bookings'%}"
+    >Manage Bookings</a
+  >
+</div>
 {% endblock content%}

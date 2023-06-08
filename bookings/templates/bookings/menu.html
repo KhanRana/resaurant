@@ -1,13 +1,15 @@
-{% extends "home/base.html"%}
-
-{% block content %}
+{% extends "home/base.html"%} {% block content %}
 <div id="menu">
-{% for item in menu %}
-    <div class="menu-item">
-    <h4 class="menu-title">{{ item.title }} <i class="far fa-heart like">
-    </i> {{ item.num_of_likes }}</h4>
-    <p id="menu-content">{{ item.content }} &nbsp; <span><em>£{{ item.price }}</em></span></p>     
-    </div>
-{% endfor %}
+  {% for item in menu %}
+  <div class="menu-item">
+    <h4 class="menu-title">
+      {{ item.title }} <i class="far fa-heart like"> </i> {{ item.num_of_likes
+      }}
+    </h4>
+    <p id="menu-content">
+      {{ item.content }} &nbsp; <span><em>£{{ item.price }}</em></span>
+    </p>
+  </div>
+  {% endfor %}
 </div>
 {%endblock content%}

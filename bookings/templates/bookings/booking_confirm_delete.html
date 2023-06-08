@@ -1,17 +1,19 @@
-{% extends "home/base.html"%}
-{% block content %}
-
-{{ booking_list }}
-    <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Cancel Booking</legend>
-            <h2>Are you sure you want to cancel the Table for {{object.table}}, {{object.date}} {{object.time}}</h2>
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-danger" type="submit">Cancel Booking</button>
-            <a class="btn btn-outline-secondary" href="{% url 'booking-details' object.id %}">Keep the Booking</a>
-
-        </div>
-    </form>
+{% extends "home/base.html"%} {% block content %} {{ booking_list }}
+<form method="POST">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <legend class="border-bottom mb-4">Cancel Booking</legend>
+    <h2>
+      Are you sure you want to cancel the Table for {{object.table}},
+      {{object.date}} {{object.time}}
+    </h2>
+  </fieldset>
+  <div class="form-group">
+    <button class="btn btn-outline-danger" type="submit">Cancel Booking</button>
+    <a
+      class="btn btn-outline-secondary"
+      href="{% url 'booking-details' object.id %}"
+      >Keep the Booking</a>
+  </div>
+</form>
 {% endblock content%}

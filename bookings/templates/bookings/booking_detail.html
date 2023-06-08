@@ -1,16 +1,18 @@
-{% extends "home/base.html"%}
-
-{% block content %}
+{% extends "home/base.html"%} {% block content %}
 <h3 id="booking-name">Booking name: {{object.username}}</h3>
 <h4>Table Booked for: {{object.table}}</h4>
 <h6>Booking Date: {{object.date}}</h6>
-<h6>Booking time: {{object.time}}</h6>  
+<h6>Booking time: {{object.time}}</h6>
 
 {% if object.username == user %}
 <div>
-    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'booking-update' object.id%}">Change Booking</a>
-    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'booking-delete' object.id%}">Cancel Booking</a>
+  <a
+    class="btn btn-secondary btn-sm mt-1 mb-1"
+    href="{% url 'booking-update' object.id%}"
+    >Change Booking</a>
+  <a
+    class="btn btn-danger btn-sm mt-1 mb-1"
+    href="{% url 'booking-delete' object.id%}"
+    >Cancel Booking</a>
 </div>
-{% endif %}
-
-{% endblock content %}
+{% endif %} {% endblock content %}
