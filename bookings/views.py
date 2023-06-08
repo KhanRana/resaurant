@@ -69,11 +69,8 @@ class BookingUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
         if len(available_tables) > 0:
             new_table = available_tables[0]
-            new_booking = Booking.objects.create(
-                username=self.request.user,
-                table=new_table,
-                date=data['date'],
-                time=data['time'],)
+            new_booking = form.save(commit=False)
+            new_booking.table = new_table
             new_booking.save()
             messages.success(self.request, '''Your table has been booked! 
                              Please look at our delicious menu and pick your favourites. 
