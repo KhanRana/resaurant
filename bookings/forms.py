@@ -1,6 +1,7 @@
 from django import forms
 from .models import Booking, Review
 
+
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
@@ -11,6 +12,7 @@ class DateInput(forms.DateInput):
     """Create date widget for the form field"""
     input_type = 'date'
 
+
 class BookingForm(forms.ModelForm):
     """Booking form to get user input for the booking"""
     class Meta:
@@ -18,4 +20,4 @@ class BookingForm(forms.ModelForm):
         fields = ['table', 'date', 'time']
         widgets = {
             'date': DateInput()
-            }
+        }

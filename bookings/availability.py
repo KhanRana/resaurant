@@ -1,6 +1,7 @@
 from datetime import date, time
 from .models import Table, Booking
 
+
 def check_availability(table, booking_date, booking_time):
     """Returns true if both table and date/tame available for a booking"""
     available_list = []
@@ -11,4 +12,3 @@ def check_availability(table, booking_date, booking_time):
         else:
             available_list.append(True)
     return all(available_list)
-

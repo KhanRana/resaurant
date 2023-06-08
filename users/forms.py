@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from django import forms
 
+
 class UserRegistrationForm(UserCreationForm):
     """Create user registration form"""
     email = forms.EmailField()
@@ -18,8 +19,9 @@ class UserUpdateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
 
+
 class ProfileUpdateForm(forms.ModelForm):
-     """Update user image"""
-     class Meta:
+    """Update user image"""
+    class Meta:
         model = Profile
         fields = ['image']

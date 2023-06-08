@@ -22,10 +22,10 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def num_of_Likes(self):
         return self.likes.count()
-    
+
 
 class Table(models.Model):
     """Creates table model"""
@@ -49,11 +49,15 @@ TIME_CHOICES = (
     ('9 PM', '9 PM'),
 )
 
+
 class Booking(models.Model):
     """Creates booking model to book a table"""
-    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    table = models.ForeignKey(Table, on_delete=models.CASCADE, related_name='table')
-    date = models.DateField(validators=[MinValueValidator(datetime.date.today)])
+    username = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='bookings')
+    table = models.ForeignKey(
+        Table, on_delete=models.CASCADE, related_name='table')
+    date = models.DateField(
+        validators=[MinValueValidator(datetime.date.today)])
     time = models.CharField(choices=TIME_CHOICES)
 
     def __str__(self):
@@ -71,8 +75,3 @@ class Review(models.Model):
 
     def __str__(self):
         return f'Review {self.body} by {self.name}'
-    
-    
-
-    
-
